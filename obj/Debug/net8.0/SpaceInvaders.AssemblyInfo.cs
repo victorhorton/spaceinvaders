@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpaceInvaders")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f25de2efb14319427d5b32b071ca1f6a24ed5030")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e66f9475bf7f8d4e2ec67c94179378c7895a9d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpaceInvaders")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpaceInvaders")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
