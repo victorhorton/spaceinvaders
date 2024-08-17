@@ -19,41 +19,29 @@ public class Player
     diagonalSpeed = CalculateDiagonalSpeed(normalSpeed);
   }
 
-  public void Move(bool up, bool down, bool left, bool right)
+  public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight)
   {
-    if (up && left)
+    float newX = Shape.Position.X;
+    float newY = Shape.Position.Y;
+
+    if (keyUp && !keyDown)
     {
-      Shape.Position = new Vector2f(Shape.Position.X - diagonalSpeed, Shape.Position.Y - diagonalSpeed);
+      newY = Shape.Position.Y - normalSpeed;
     }
-    else if (up && right)
+    if (keyDown && !keyUp)
     {
-      Shape.Position = new Vector2f(Shape.Position.X + diagonalSpeed, Shape.Position.Y - diagonalSpeed);
+      newY = Shape.Position.Y + normalSpeed;
     }
-    else if (down && left)
+    if (keyLeft && !keyRight)
     {
-      Shape.Position = new Vector2f(Shape.Position.X - diagonalSpeed, Shape.Position.Y + diagonalSpeed);
+      newX = Shape.Position.X - normalSpeed;
     }
-    else if (down && right)
+    if (keyRight && !keyLeft)
     {
-      Shape.Position = new Vector2f(Shape.Position.X + diagonalSpeed, Shape.Position.Y + diagonalSpeed);
-    }
-    else if (up)
-    {
-      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - normalSpeed);
-    }
-    else if (left)
-    {
-      Shape.Position = new Vector2f(Shape.Position.X - normalSpeed, Shape.Position.Y);
-    }
-    else if (down)
-    {
-      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y + normalSpeed);
-    }
-    else if (right)
-    {
-      Shape.Position = new Vector2f(Shape.Position.X + normalSpeed, Shape.Position.Y);
+      newX = Shape.Position.X + normalSpeed;
     }
     
+    Shape.Position = new Vector2f(newX, newY);
   }
 
   private float CalculateDiagonalSpeed(float normalSpeed)
