@@ -10,6 +10,6 @@ public class Level
 
   public void Render(RenderWindow window)
   {
-    window.Draw(player.shape);
+    window.Draw(player.Shape);
   }
 }
