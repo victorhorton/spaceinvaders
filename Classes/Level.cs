@@ -11,5 +11,6 @@ public class Level
   public void Render(RenderWindow window)
   {
     window.Draw(player.Shape);
+    window.Draw(player.Bullet.Shape);
   }
 }

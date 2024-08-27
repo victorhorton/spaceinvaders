@@ -15,7 +15,13 @@ while (window.IsOpen)
     Keyboard.IsKeyPressed(Keyboard.Key.Right)
   );
 
+  if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
+  {
+    level.player.Shoot();
+  }
+
   window.Clear(Color.Black);
+  level.player.Bullet.Update();
   level.Render(window);
   window.Display();
 }

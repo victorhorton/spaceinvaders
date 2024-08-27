@@ -5,10 +5,26 @@ public class Bullet
 {
   public RectangleShape Shape;
   private float Speed;
+  public bool Active;
 
-  public Bullet(float speed)
+  public Bullet()
   {
-    Shape = new RectangleShape(new Vector2f(120f, 50));
-    Speed = speed;
+    Shape = new RectangleShape(new Vector2f(1, 5));
+    Speed = 0.2f;
+    Active = false;
+  }
+
+  public void Update()
+  {
+    if (Active)
+    {
+      Console.WriteLine(Shape.Position.Y);
+      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed);
+    }
+
+    if (Shape.Position.Y < -10)
+    {
+      Active = false;
+    }
   }
 }
