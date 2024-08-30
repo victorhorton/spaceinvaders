@@ -30,21 +30,33 @@ public class Player
     float newX = Shape.Position.X;
     float newY = Shape.Position.Y;
 
+    float speed = normalSpeed;
+
+    if (
+      (keyUp && keyLeft) ||
+      (keyUp && keyRight) ||
+      (keyDown && keyLeft) ||
+      (keyDown && keyRight)
+    )
+    {
+      speed = diagonalSpeed;
+    }
+
     if (keyUp && !keyDown)
     {
-      newY = Shape.Position.Y - normalSpeed;
+      newY = Shape.Position.Y - speed;
     }
     if (keyDown && !keyUp)
     {
-      newY = Shape.Position.Y + normalSpeed;
+      newY = Shape.Position.Y + speed;
     }
     if (keyLeft && !keyRight)
     {
-      newX = Shape.Position.X - normalSpeed;
+      newX = Shape.Position.X - speed;
     }
     if (keyRight && !keyLeft)
     {
-      newX = Shape.Position.X + normalSpeed;
+      newX = Shape.Position.X + speed;
     }
     
     Shape.Position = new Vector2f(newX, newY);
