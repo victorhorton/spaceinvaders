@@ -21,6 +21,10 @@ public class Level
   public void Render(RenderWindow window)
   {
     if (player.Alive()) window.Draw(player.Shape);
+    Font font = new Font("Fonts/VT323-Regular.ttf");
+    Text text = new Text($"{player.Lives}", font);
+    text.Position = new Vector2f(50, 500);
+    window.Draw(text);
 
     foreach (Enemy enemy in enemies)
     {
