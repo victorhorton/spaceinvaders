@@ -35,16 +35,16 @@ public class Level
 
     foreach (Enemy enemy in enemies)
     {
+      foreach (Bullet bullet in enemy.Bullets)
+      {
+        window.Draw(bullet.Shape);
+      }
       if (enemy.Alive())
       {
         window.Draw(enemy.Shape);
         Random random = new Random();
         int randomNumber = random.Next(0, 900);
 
-        foreach (Bullet bullet in enemy.Bullets)
-        {
-          window.Draw(bullet.Shape);
-        }
 
         if (randomNumber == 1)
         {
