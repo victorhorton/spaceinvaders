@@ -17,7 +17,7 @@ public class Player
     Shape.SetPoint(2, new Vector2f(10, 0));
     Shape.SetPoint(3, new Vector2f(20, 40));
 
-    Shape.Position = new Vector2f(400, 300);    
+    Shape.Position = new Vector2f(400, 300);
 
     normalSpeed = .1f;
     diagonalSpeed = CalculateDiagonalSpeed(normalSpeed);
@@ -58,7 +58,7 @@ public class Player
     {
       newX = Shape.Position.X + speed;
     }
-    
+
     Shape.Position = new Vector2f(newX, newY);
   }
 
