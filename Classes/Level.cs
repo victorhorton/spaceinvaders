@@ -1,4 +1,5 @@
 using SFML.Graphics;
+using SFML.System;
 
 public class Level
 {
@@ -32,7 +33,7 @@ public class Level
       {
         window.Draw(enemy.Shape);
         Random random = new Random();
-        int randomNumber = random.Next(0, 10000);
+        int randomNumber = random.Next(0, 900);
 
         foreach (Bullet bullet in enemy.Bullets)
         {

@@ -7,10 +7,10 @@ public class Bullet
   private float Speed;
   public bool Active;
 
-  public Bullet()
+  public Bullet(float speed = 0.5f)
   {
     Shape = new RectangleShape(new Vector2f(1, 5));
-    Speed = 0.15f;
+    Speed = speed;
     Active = false;
   }
 
