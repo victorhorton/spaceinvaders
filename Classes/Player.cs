@@ -7,6 +7,8 @@ public class Player
   private float normalSpeed;
   private float diagonalSpeed;
 
+  private DateTime coolDown;
+
   public List<Bullet> Bullets;
 
   public Player()
@@ -23,6 +25,7 @@ public class Player
     diagonalSpeed = CalculateDiagonalSpeed(normalSpeed);
 
     Bullets = new List<Bullet>();
+    coolDown = DateTime.Now;
   }
 
   public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight)
@@ -64,10 +67,12 @@ public class Player
 
   public void Shoot()
   {
+    if (coolDown > DateTime.Now) return;
     Bullet bullet = new Bullet();
     bullet.Shape.Position = new Vector2f(Shape.Position.X + 10, Shape.Position.Y);
     bullet.Active = true;
     Bullets.Add(bullet);
+    coolDown = DateTime.Now.AddSeconds(0.2);
   }
   private float CalculateDiagonalSpeed(float normalSpeed)
   {

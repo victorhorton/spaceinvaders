@@ -10,7 +10,7 @@ public class Bullet
   public Bullet()
   {
     Shape = new RectangleShape(new Vector2f(1, 5));
-    Speed = 0.2f;
+    Speed = 0.15f;
     Active = false;
   }
 
