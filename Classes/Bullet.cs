@@ -14,11 +14,19 @@ public class Bullet
     Active = false;
   }
 
-  public void Update()
+  public void Update(EnemyBase enemyBase)
   {
     if (Active)
     {
       Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed);
+
+      bool hitBase = Shape.GetGlobalBounds().Intersects(enemyBase.Shape.GetGlobalBounds());
+
+      if (hitBase)
+      {
+        Active = false;
+        enemyBase.Alive = false;
+      }
     }
 
     if (Shape.Position.Y < -10)

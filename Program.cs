@@ -23,7 +23,7 @@ while (window.IsOpen)
   window.Clear(Color.Black);
   foreach (Bullet bullet in level.player.Bullets)
   {
-    bullet.Update();
+    bullet.Update(level.enemyBase);
   }
 
   level.player.Bullets.RemoveAll((Bullet bullet) => { return !bullet.Active; });
