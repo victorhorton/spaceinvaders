@@ -21,7 +21,13 @@ while (window.IsOpen)
   }
 
   window.Clear(Color.Black);
-  level.player.Bullet.Update();
+  foreach (Bullet bullet in level.player.Bullets)
+  {
+    bullet.Update();
+  }
+
+  level.player.Bullets.RemoveAll((Bullet bullet) => { return !bullet.Active; });
+
   level.Render(window);
   window.Display();
 }

@@ -18,7 +18,6 @@ public class Bullet
   {
     if (Active)
     {
-      Console.WriteLine(Shape.Position.Y);
       Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed);
     }
 
