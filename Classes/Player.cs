@@ -27,6 +27,7 @@ public class Player : IShip
 
     Bullets = new List<Bullet>();
     coolDown = DateTime.Now;
+    Alive = true;
   }
 
   public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight)

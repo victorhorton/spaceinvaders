@@ -14,13 +14,13 @@ public class Bullet
     Active = false;
   }
 
-  public void Update(Enemy[] enemies)
+  public void Update(IShip[] enemyShips, int direction = 1)
   {
     if (Active)
     {
-      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed);
+      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed * direction);
 
-      foreach (Enemy enemy in enemies)
+      foreach (IShip enemy in enemyShips)
       {
         bool hitBase = Shape.GetGlobalBounds().Intersects(enemy.Shape.GetGlobalBounds());
 
@@ -32,7 +32,7 @@ public class Bullet
       }
     }
 
-    if (Shape.Position.Y < -10)
+    if (Shape.Position.Y < -10 || Shape.Position.Y > 610)
     {
       Active = false;
     }

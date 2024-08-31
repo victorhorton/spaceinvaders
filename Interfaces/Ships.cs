@@ -1,6 +1,6 @@
 using SFML.Graphics;
 
-interface IShip
+public interface IShip
 {
   public ConvexShape Shape { get; set; }
   public bool Alive { get; set; }

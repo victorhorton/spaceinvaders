@@ -29,9 +29,23 @@ while (window.IsOpen)
     bullet.Update(level.enemies);
   }
 
+  foreach (Enemy enemy in level.enemies)
+  {
+    foreach (Bullet bullet in enemy.Bullets)
+    {
+      bullet.Update([level.player], -1);
+    }
+  }
+
   if (level.enemies.All((Enemy enemy) => { return !enemy.Alive; }))
   {
     difficulty += 2;
+    level = new Level(difficulty);
+  }
+
+  if (!level.player.Alive)
+  {
+    difficulty = 5;
     level = new Level(difficulty);
   }
 
