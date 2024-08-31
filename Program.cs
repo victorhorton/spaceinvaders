@@ -37,19 +37,24 @@ while (window.IsOpen)
     }
   }
 
-  if (level.enemies.All((Enemy enemy) => { return !enemy.Alive; }))
+  if (level.enemies.All((Enemy enemy) => { return !enemy.Alive(); }))
   {
     difficulty += 2;
     level = new Level(difficulty);
   }
 
-  if (!level.player.Alive)
+  if (!level.player.Alive())
   {
     difficulty = 5;
     level = new Level(difficulty);
   }
 
   level.player.Bullets.RemoveAll((Bullet bullet) => { return !bullet.Active; });
+
+  foreach (Enemy enemy in level.enemies)
+  {
+    enemy.Bullets.RemoveAll((Bullet bullet) => { return !bullet.Active; });
+  }
 
   level.Render(window);
   window.Display();

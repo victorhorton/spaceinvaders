@@ -27,7 +27,7 @@ public class Bullet
         if (hitBase)
         {
           Active = false;
-          enemy.Alive = false;
+          enemy.Lives -= 1;
         }
       }
     }

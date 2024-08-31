@@ -4,7 +4,7 @@ using SFML.System;
 public class Enemy : IShip
 {
   public ConvexShape Shape { get; set; }
-  public bool Alive { get; set; }
+  public int Lives { get; set; }
 
   public List<Bullet> Bullets { get; set; }
 
@@ -16,7 +16,7 @@ public class Enemy : IShip
     Shape.SetPoint(2, new Vector2f(10, 0));
     Shape.SetPoint(3, new Vector2f(20, 10));
     Shape.Position = new Vector2f(xPosition, 10);
-    Alive = true;
+    Lives = 1;
     Bullets = new List<Bullet>();
   }
 
@@ -26,5 +26,10 @@ public class Enemy : IShip
     bullet.Shape.Position = new Vector2f(Shape.Position.X + 10, Shape.Position.Y);
     bullet.Active = true;
     Bullets.Add(bullet);
+  }
+
+  public bool Alive()
+  {
+    return Lives > 0;
   }
 }

@@ -20,11 +20,11 @@ public class Level
 
   public void Render(RenderWindow window)
   {
-    if (player.Alive) window.Draw(player.Shape);
+    if (player.Alive()) window.Draw(player.Shape);
 
     foreach (Enemy enemy in enemies)
     {
-      if (enemy.Alive)
+      if (enemy.Alive())
       {
         window.Draw(enemy.Shape);
         Random random = new Random();
@@ -37,7 +37,6 @@ public class Level
 
         if (randomNumber == 1)
         {
-          Console.WriteLine("Enemy Shoot");
           enemy.Shoot();
         }
       }

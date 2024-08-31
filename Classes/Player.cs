@@ -4,7 +4,7 @@ using SFML.System;
 public class Player : IShip
 {
   public ConvexShape Shape { get; set; }
-  public bool Alive { get; set; }
+  public int Lives { get; set; }
   private float normalSpeed;
   private float diagonalSpeed;
 
@@ -27,7 +27,7 @@ public class Player : IShip
 
     Bullets = new List<Bullet>();
     coolDown = DateTime.Now;
-    Alive = true;
+    Lives = 3;
   }
 
   public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight)
@@ -79,5 +79,9 @@ public class Player : IShip
   private float CalculateDiagonalSpeed(float normalSpeed)
   {
     return normalSpeed / ((float)Math.Sqrt(normalSpeed * normalSpeed * 2)) * normalSpeed;
+  }
+  public bool Alive()
+  {
+    return Lives > 0;
   }
 }
