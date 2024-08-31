@@ -1,15 +1,16 @@
 using SFML.Graphics;
 using SFML.System;
 
-public class Player
+public class Player : IShip
 {
-  public ConvexShape Shape;
+  public ConvexShape Shape { get; set; }
+  public bool Alive { get; set; }
   private float normalSpeed;
   private float diagonalSpeed;
 
   private DateTime coolDown;
 
-  public List<Bullet> Bullets;
+  public List<Bullet> Bullets { get; set; }
 
   public Player()
   {

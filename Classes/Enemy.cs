@@ -1,12 +1,12 @@
 using SFML.Graphics;
 using SFML.System;
 
-public class Enemy
+public class Enemy : IShip
 {
-  public ConvexShape Shape;
-  public bool Alive;
+  public ConvexShape Shape { get; set; }
+  public bool Alive { get; set; }
 
-  public List<Bullet> Bullets;
+  public List<Bullet> Bullets { get; set; }
 
   public Enemy(float xPosition)
   {
@@ -19,6 +19,7 @@ public class Enemy
     Alive = true;
     Bullets = new List<Bullet>();
   }
+
   public void Shoot()
   {
     Bullet bullet = new Bullet();
