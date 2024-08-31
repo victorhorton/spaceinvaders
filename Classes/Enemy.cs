@@ -22,8 +22,8 @@ public class Enemy : IShip
 
   public void Shoot()
   {
-    Bullet bullet1 = new Bullet(0.6f);
-    Bullet bullet2 = new Bullet(0.6f);
+    Bullet bullet1 = new Bullet(0.8f);
+    Bullet bullet2 = new Bullet(0.8f);
     bullet1.Shape.Position = new Vector2f(Shape.Position.X + 2.5f, Shape.Position.Y + 10);
     bullet2.Shape.Position = new Vector2f(Shape.Position.X + 17.5f, Shape.Position.Y + 10);
     bullet1.Active = true;

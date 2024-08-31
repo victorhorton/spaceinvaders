@@ -22,7 +22,7 @@ public class Player : IShip
 
     Shape.Position = new Vector2f(400, 300);
 
-    normalSpeed = .3f;
+    normalSpeed = .5f;
     diagonalSpeed = CalculateDiagonalSpeed(normalSpeed);
 
     Bullets = new List<Bullet>();

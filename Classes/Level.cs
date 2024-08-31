@@ -5,12 +5,14 @@ public class Level
 {
   public Player player;
   public Enemy[] enemies;
+  private int Number;
   private int DifficultyLevel;
-  public Level(int difficultyLevel)
+  public Level(int number)
   {
-    DifficultyLevel = difficultyLevel;
+    DifficultyLevel = number + 5;
     player = new Player();
     enemies = new Enemy[DifficultyLevel];
+    Number = number;
     float enemySeperation = 800 / DifficultyLevel;
 
     for (int i = 0; i < enemies.Length; i++)
@@ -23,9 +25,13 @@ public class Level
   {
     if (player.Alive()) window.Draw(player.Shape);
     Font font = new Font("Fonts/VT323-Regular.ttf");
-    Text text = new Text($"{player.Lives}", font);
-    text.Position = new Vector2f(50, 500);
-    window.Draw(text);
+    Text livesText = new Text($"Lives: {player.Lives}", font);
+    livesText.Position = new Vector2f(50, 500);
+    window.Draw(livesText);
+
+    Text levelText = new Text($"Level: {Number}", font);
+    levelText.Position = new Vector2f(50, 450);
+    window.Draw(levelText);
 
     foreach (Enemy enemy in enemies)
     {

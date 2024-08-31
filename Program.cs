@@ -3,9 +3,9 @@ using SFML.Window;
 
 RenderWindow window = new RenderWindow(new VideoMode(800, 600), "Space Invaders");
 
-int difficulty = 5;
+int levelNumber = 1;
 
-Level level = new Level(difficulty);
+Level level = new Level(levelNumber);
 
 while (window.IsOpen)
 {
@@ -39,14 +39,14 @@ while (window.IsOpen)
 
   if (level.enemies.All((Enemy enemy) => { return !enemy.Alive(); }))
   {
-    difficulty += 2;
-    level = new Level(difficulty);
+    levelNumber += 1;
+    level = new Level(levelNumber);
   }
 
   if (!level.player.Alive())
   {
-    difficulty = 5;
-    level = new Level(difficulty);
+    levelNumber = 1;
+    level = new Level(levelNumber);
   }
 
   level.player.Bullets.RemoveAll((Bullet bullet) => { return !bullet.Active; });
