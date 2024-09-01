@@ -54,7 +54,6 @@ public class Player : IShip
     if (keyDown && !keyUp && Shape.Position.Y <= maxY - 50)
     {
       newY = Shape.Position.Y + speed;
-      Console.WriteLine(Shape.Position.Y);
     }
     if (keyLeft && !keyRight && Shape.Position.X >= 0)
     {
