@@ -37,4 +37,26 @@ public class Bullet
       Active = false;
     }
   }
+
+  public void Update(IShip enemyShip, int direction = 1)
+  {
+    if (Active)
+    {
+      Shape.Position = new Vector2f(Shape.Position.X, Shape.Position.Y - Speed * direction);
+
+      bool hitBase = Shape.GetGlobalBounds().Intersects(enemyShip.Shape.GetGlobalBounds());
+
+      if (hitBase)
+      {
+        Active = false;
+        enemyShip.Lives -= 1;
+      }
+    }
+
+    if (Shape.Position.Y < -10 || Shape.Position.Y > 610)
+    {
+      Active = false;
+    }
+  }
+
 }

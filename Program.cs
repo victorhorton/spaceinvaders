@@ -35,7 +35,7 @@ while (window.IsOpen)
   {
     foreach (Bullet bullet in enemy.Bullets)
     {
-      bullet.Update([level.player], -1);
+      bullet.Update(level.player, -1);
     }
   }
 
