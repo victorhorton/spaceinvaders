@@ -30,7 +30,7 @@ public class Player : IShip
     Lives = 3;
   }
 
-  public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight)
+  public void Move(bool keyUp, bool keyDown, bool keyLeft, bool keyRight, int maxX, int maxY)
   {
     float newX = Shape.Position.X;
     float newY = Shape.Position.Y;
@@ -47,19 +47,20 @@ public class Player : IShip
       speed = diagonalSpeed;
     }
 
-    if (keyUp && !keyDown)
+    if (keyUp && !keyDown && Shape.Position.Y >= 0)
     {
       newY = Shape.Position.Y - speed;
     }
-    if (keyDown && !keyUp)
+    if (keyDown && !keyUp && Shape.Position.Y <= maxY - 50)
     {
       newY = Shape.Position.Y + speed;
+      Console.WriteLine(Shape.Position.Y);
     }
-    if (keyLeft && !keyRight)
+    if (keyLeft && !keyRight && Shape.Position.X >= 0)
     {
       newX = Shape.Position.X - speed;
     }
-    if (keyRight && !keyLeft)
+    if (keyRight && !keyLeft && Shape.Position.X <= maxX - 20)
     {
       newX = Shape.Position.X + speed;
     }

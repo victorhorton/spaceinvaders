@@ -15,7 +15,9 @@ while (window.IsOpen)
     Keyboard.IsKeyPressed(Keyboard.Key.Up),
     Keyboard.IsKeyPressed(Keyboard.Key.Down),
     Keyboard.IsKeyPressed(Keyboard.Key.Left),
-    Keyboard.IsKeyPressed(Keyboard.Key.Right)
+    Keyboard.IsKeyPressed(Keyboard.Key.Right),
+    800,
+    600
   );
 
   if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
